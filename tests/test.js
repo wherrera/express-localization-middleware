@@ -1,3 +1,4 @@
+const Localization = require('express-localization-middleware');
 
 const loc = new Localization();
 
