@@ -93,3 +93,5 @@ class Localization {
       return _dict;
   }
 }
+
+module.exports = Localization;
