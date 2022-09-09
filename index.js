@@ -27,17 +27,13 @@ const fs = require('fs');
 const readline = require('readline');
 
 class Localization {
-
-  constructor(filename) {
-    if(filename) {
-      this.loadFile(filename)
-    }
-  }
   
+  constructor() { }
+
   get middleware() {
-    let _data = this.data || {};
-    console.log(_data)
+    let _this = this;
     return function (req, res, next) {
+      let _data = _this.data;
       let lang_code = req.query.lang || req.body.lang;
       if(!_data[lang_code]) {
         console.error('unknown language code: ' + lang_code);

@@ -1,4 +1,4 @@
-const Localization = require('express-localization-middleware');
+const Localization = require('../index');
 
 const loc = new Localization();
 
