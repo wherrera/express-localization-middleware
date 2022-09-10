@@ -28,7 +28,24 @@ const readline = require('readline');
 
 class Localization {
   
-  constructor() { }
+  constructor() {
+    this.data = {
+      "english": { }
+    }
+    this._defaultLanguage = 'english';
+  }
+
+  setDefaultLanguage(lang = 'english') {
+    this._defaultLanguage = lang;
+  }
+
+  get defaultLanguage() {
+    return this._defaultLanguage;
+  }
+
+  get languages() {
+    return Object.keys(this.data);
+  }
 
   get middleware() {
     let _this = this;
@@ -38,7 +55,7 @@ class Localization {
       if(!_data[lang_code]) {
         console.error('unknown language code: ' + lang_code);
       }
-      let _dict = _data[lang_code] || _data['eng'];//default to english
+      let _dict = _data[lang_code] || _data[_this.defaultLanguage];
       for (const [key, value] of Object.entries(_dict)) {
         res.locals[key] = value;
       }

@@ -6,10 +6,14 @@ const loc = new Localization();
 
   await loc.loadFile('tests/test.csv');
 
+  console.log(loc.languages);
+
   let res = { locals: {} }
 
-  console.log("test///" + loc.middleware({query: {lang: 'spa'}}, res, ()=>{}))
+  console.log("Default Language: " + loc.defaultLanguage)
 
-  console.log(res)
+  loc.middleware({query: {lang: 'english'}}, res, ()=>{});
+
+  console.log(res.locals)
 
 })()
