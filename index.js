@@ -64,7 +64,11 @@ class Localization {
   }
 
   async loadFile(filename) {
-    this.data = await this.parseLocalizationCSV(filename);
+    let _data = await this.parseLocalizationCSV(filename);
+    for (const [key, value] of Object.entries(_data))
+    {
+      this.data[key] = value;
+    }
   }
 
   async parseLocalizationCSV (filename, separator = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/g) {

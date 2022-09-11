@@ -4,9 +4,11 @@ const loc = new Localization();
 
 (async () => {
 
-  await loc.loadFile('tests/test.csv');
+  await loc.loadFile('tests/eng-spa.csv');
+  await loc.loadFile('tests/french.csv');
 
   console.log(loc.languages);
+  console.log(JSON.stringify(loc.data));
 
   let res = { locals: {} }
 

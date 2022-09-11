@@ -9,7 +9,7 @@ const app = Express();
 const loc = new Localization();
 
 (async () => {
-  await loc.loadFile('tests/test.csv');
+  await loc.loadFile('tests/eng-spa.csv');
 })()
 
 app.use(loc.middleware);
